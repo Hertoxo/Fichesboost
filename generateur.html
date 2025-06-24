@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur de fiches - FicheBoost</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">FicheBoost</a>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="generateur.html">Générateur</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Générateur -->
+  <main class="generator">
+    <h1>📝 Génère ta fiche de révision</h1>
+    <p>Colle ton cours ci-dessous, et obtiens un résumé clair automatiquement.</p>
+
+    <textarea id="inputText" placeholder="Colle ici ton cours..."></textarea>
+    <button onclick="generate()">✨ Générer</button>
+
+    <div id="output" class="card hidden"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FicheBoost – Un projet d’Ismael CHARI</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

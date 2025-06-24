@@ -1,0 +1,773 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #00bfff; /* Bleu vif */
+    --secondary-color: #6a0572; /* Violet pour les contrastes */
+    --background-dark: #0A0A0A; /* Noir très sombre */
+    --background-light: #1A1A1A; /* Gris foncé */
+    --card-background: #1F1F1F; /* Gris plus clair pour les cartes */
+    --text-light: #E0E0E0; /* Texte clair */
+    --text-dark: #C0C0C0; /* Texte secondaire */
+    --border-color: #333333;
+    --shadow-light: rgba(0, 191, 255, 0.2);
+    --shadow-dark: rgba(0, 0, 0, 0.4);
+    --transition-speed: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.7; /* Légèrement augmenté pour la lisibilité */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+/* Global Styles */
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem; /* Plus grand titre */
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    border-radius: 50px; /* Bords plus arrondis */
+    font-weight: 600;
+    transition: all var(--transition-speed);
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de se briser */
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--background-dark);
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.btn-primary:hover {
+    background: #0099cc; /* Bleu légèrement plus foncé */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    margin-left: 1rem; /* Espace entre les boutons */
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--background-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.btn-secondary { /* Nouveau bouton pour 'S'inscrire' */
+    background: var(--secondary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.btn-secondary:hover {
+    background: #5a0462;
+    transform: scale(1.05);
+}
+
+.btn-lg {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+}
+
+/* Icônes */
+.icon-lg {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Header */
+header {
+    background: var(--background-light);
+    padding: 1rem 3rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px var(--shadow-dark);
+    position: sticky; /* Sticky header */
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar a.logo {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.navbar a.logo:hover {
+    color: #00e0ff;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+.navbar ul li a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.navbar ul li a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 3rem; /* Plus de padding */
+    background: linear-gradient(135deg, var(--background-dark) 0%, #151515 100%);
+    min-height: 80vh; /* Prend plus de hauteur */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before { /* Effet de fond subtil */
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--primary-color);
+    opacity: 0.05;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 250px;
+    height: 250px;
+    background: var(--secondary-color);
+    opacity: 0.05;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 1rem;
+    max-width: 600px;
+    text-align: left;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8rem; /* Titre plus grand et impactant */
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    color: var(--text-light);
+}
+
+.hero-content h1 strong {
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-dark);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.hero img {
+    max-width: 500px; /* Légèrement plus grand */
+    width: 100%;
+    animation: float 3s ease-in-out infinite; /* Animation de flottement */
+    z-index: 1;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Features Section */
+.features {
+    padding: 5rem 3rem;
+    background: var(--background-light);
+    text-align: center;
+}
+
+.features .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mise en page en grille */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-dark);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px var(--shadow-light);
+}
+
+.feature-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 5rem 3rem;
+    background: var(--background-dark);
+    text-align: center;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step-card {
+    background: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-dark);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.step-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    opacity: 0.1;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 0;
+}
+
+.step-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+    position: relative;
+    z-index: 1;
+}
+
+.step-card p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    position: relative;
+    z-index: 1;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 5rem 3rem;
+    background: var(--background-light);
+    text-align: center;
+}
+
+.testimonial-slider {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-dark);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    width: 45%; /* Ajustez pour deux cartes par ligne */
+    min-width: 300px; /* Largeur minimale pour les mobiles */
+    flex-grow: 1; /* Permet aux cartes de s'étirer */
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.testimonial-author h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.testimonial-author span {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+/* Call to Action Section */
+.cta-section {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    padding: 6rem 3rem;
+    text-align: center;
+    color: #fff; /* Texte blanc sur fond coloré */
+    box-shadow: inset 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-section .section-title {
+    color: #fff; /* Titre blanc */
+    margin-bottom: 2rem;
+}
+
+.cta-section .section-title::after {
+    background: #fff;
+}
+
+.cta-section p {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background: var(--background-light);
+    padding: 3rem 3rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+}
+
+.footer-brand {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-brand .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.footer-brand p {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.footer-links,
+.footer-social {
+    flex: 1;
+    min-width: 180px;
+}
+
+.footer-links h4,
+.footer-social h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+/* Générateur, À propos, Contact (styles existants améliorés) */
+main {
+    max-width: 900px; /* Plus large pour le contenu principal */
+    margin: 3rem auto;
+    padding: 3rem;
+    background: var(--background-light);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    border: 1px solid var(--border-color);
+}
+
+main h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    height: 250px; /* Plus de hauteur */
+    background: var(--background-dark);
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    resize: vertical;
+    outline: none;
+    transition: border-color var(--transition-speed);
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--shadow-light);
+}
+
+button { /* Applique les styles btn */
+    width: 100%;
+    margin-top: 1.5rem;
+    /* Les styles existants du bouton seront remplacés par .btn et .btn-primary */
+    /* Assurez-vous d'ajouter class="btn btn-primary" à vos boutons HTML */
+}
+
+/* Styles spécifiques pour le bouton de génération */
+.generator-button {
+    background: var(--primary-color);
+    color: var(--background-dark);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.generator-button:hover {
+    background: #0099cc;
+    transform: translateY(-3px);
+}
+
+.card#output {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    background: var(--background-dark);
+    border: 1px solid var(--primary-color); /* Bordure plus visible */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    font-family: 'Open Sans', monospace; /* Police monospace pour le code/résumé */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text-light);
+}
+
+
+form input,
+form textarea {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: var(--background-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--shadow-light);
+}
+
+footer {
+    margin-top: 5rem;
+}
+
+/* Not Found Page */
+.not-found {
+    text-align: center;
+    padding: 8rem 2rem;
+    min-height: calc(100vh - 250px); /* Assure qu'il y a assez d'espace */
+}
+
+.not-found h1 {
+    font-size: 6rem;
+    color: #ff5555;
+    margin-bottom: 1rem;
+    text-shadow: 0 5px 10px rgba(255, 85, 85, 0.3);
+}
+
+.not-found p {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.not-found .btn {
+    font-size: 1.1rem;
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 4rem 2rem;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero img {
+        max-width: 80%;
+    }
+
+    .features .cards,
+    .steps-container,
+    .testimonial-slider {
+        grid-template-columns: 1fr; /* Une colonne pour les petits écrans */
+    }
+
+    .testimonial-card {
+        width: 100%; /* Pleine largeur */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links ul {
+        padding: 0;
+    }
+
+    .footer-social .social-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 1.5rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    main {
+        padding: 2rem;
+        margin: 2rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .feature-card,
+    .step-card,
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+}
